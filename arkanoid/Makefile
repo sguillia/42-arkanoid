@@ -6,7 +6,7 @@
 #    By: sguillia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/30 12:22:42 by sguillia          #+#    #+#              #
-#    Updated: 2016/05/29 22:52:48 by sguillia         ###   ########.fr        #
+#    Updated: 2016/05/29 23:20:08 by sguillia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,15 +63,15 @@ all : makelibft $(NAME)
 makelibft:
 	git submodule init
 	git submodule update
-	cd glfw && cmake . && make
+	cd ../glfw && cmake . && make
 	make -C libft
 
 $(NAME) : $(OBJ)
-	clang $(FLAGS) -o $(NAME) $^ $(GLFW) -L glfw/src -Ilibft -Llibft -lft
+	clang $(FLAGS) -o $(NAME) $^ $(GLFW) -L ../glfw/src -Ilibft -Llibft -lft
 	@#clang $(FLAGS) -o $(NAME) $^ -Ilibft -Llibft -lft
 
 %.o : %.c arkanoid.h
-	clang $(FLAGS) -o $@ -c $< -I glfw/include/ -Ilibft
+	clang $(FLAGS) -o $@ -c $< -I ../glfw/include/ -Ilibft
 	@#clang $(FLAGS) -o $@ -c $< -Ilibft
 
 clean :
