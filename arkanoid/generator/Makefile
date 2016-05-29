@@ -6,7 +6,7 @@
 #    By: sguillia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/30 12:22:42 by sguillia          #+#    #+#              #
-#    Updated: 2016/01/31 23:00:03 by mdeken           ###   ########.fr        #
+#    Updated: 2016/05/29 23:52:48 by sguillia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,15 +56,12 @@ all : makelibft $(NAME)
 makelibft:
 	make -C libft
 
-glfw :
-	make -C glfw/
-
 $(NAME) : $(OBJ)
-	clang $(FLAGS) -o $(NAME) $^ $(GLFW) -L glfw/src -Ilibft -Llibft -lft
+	clang $(FLAGS) -o $(NAME) $^ $(GLFW) -L ../../glfw/src -Ilibft -Llibft -lft
 	@#clang $(FLAGS) -o $(NAME) $^ -Ilibft -Llibft -lft
 
 %.o : %.c arkanoid.h
-	clang $(FLAGS) -o $@ -c $< -I glfw/include/ -Ilibft
+	clang $(FLAGS) -o $@ -c $< -I ../../glfw/include/ -Ilibft
 	@#clang $(FLAGS) -o $@ -c $< -Ilibft
 
 clean :

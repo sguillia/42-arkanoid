@@ -6,7 +6,7 @@
 #    By: sguillia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/30 12:22:42 by sguillia          #+#    #+#              #
-#    Updated: 2016/05/29 23:20:08 by sguillia         ###   ########.fr        #
+#    Updated: 2016/05/29 23:54:17 by sguillia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,10 +76,12 @@ $(NAME) : $(OBJ)
 
 clean :
 	make -C libft clean
+	make -C generator clean
 	rm -rf $(OBJ)
 
 fclean : clean
 	make -C libft fclean
+	make -C generator fclean
 	rm -rf $(NAME)
 
 cleanp:
